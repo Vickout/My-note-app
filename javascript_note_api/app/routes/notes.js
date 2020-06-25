@@ -29,7 +29,16 @@ router.get('/:id', withAuth, async (req, res) => {
         res.status(500).json({ error: 'Problem to get a note' });
         
     }
-})
+});
+
+router.get('/', withAuth, async (req, res) => {
+    try {
+        let notes = await Note.find({ author: req.user._id });
+        res.json(notes);
+    } catch (error) {
+        res.status(500).json({ error: error });
+    }
+}); 
 
 const isOwner = (user, note) => {
     if(JSON.stringify(user._id) == JSON.stringify(note.author)) {
