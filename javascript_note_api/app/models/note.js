@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 
-mongoose.set('useFindAndModify', false);
-
 let noteSchema = new mongoose.Schema({
     title: String,
     body: String,
@@ -16,8 +14,10 @@ let noteSchema = new mongoose.Schema({
     author: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        requided: true
+        required: true
     }
 });
+
+noteSchema.index({ 'title': 'text', 'body': 'text' });
 
 module.exports = mongoose.model('Note', noteSchema);
