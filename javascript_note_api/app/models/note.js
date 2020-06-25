@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+mongoose.set('useFindAndModify', false);
+
 let noteSchema = new mongoose.Schema({
     title: String,
     body: String,
