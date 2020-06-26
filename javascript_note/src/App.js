@@ -1,15 +1,11 @@
 import React, { Fragment } from 'react';
-import { Notification, Section } from 'rbx';
 import './App.scss';
+import Header from './components/header';
 
 function App() {
   return (
     <Fragment>
-      <Section>
-        <Notification color="success">
-          Javascript Notes!
-        </Notification>
-      </Section>
+      <Header />
     </Fragment>
   );
 }
