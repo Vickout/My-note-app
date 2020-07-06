@@ -7,6 +7,8 @@ import LoginScreen from './screens/auth/login';
 import NotesScreen from './screens/notes/index';
 import UsersEditScreen from './screens/users/edit';
 
+import PrivateRouter from './components/auth/private_router';
+
 function Routes() {
     return (
         <BrowserRouter>
@@ -14,8 +16,8 @@ function Routes() {
                 <Route exact path="/" component={HomeScreen} />
                 <Route exact path='/register' component={RegisterScreen} />
                 <Route exact path='/login' component={LoginScreen} />
-                <Route exact path='/notes' component={NotesScreen} />
-                <Route exact path='/users/edit' component={UsersEditScreen} />
+                <PrivateRouter exact path='/notes' component={NotesScreen} />
+                <PrivateRouter exact path='/users/edit' component={UsersEditScreen} />
             </Switch>
         </BrowserRouter>
     );
