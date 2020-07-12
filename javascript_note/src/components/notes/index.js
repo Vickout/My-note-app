@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { Column, Button } from "rbx";
 import { push as Menu } from 'react-burger-menu';
 import List from "../notes/list";
+import Editor from "../notes/editor";
 import NoteService from '../../services/notes';
 
 import '../../styles/notes.scss';
@@ -68,7 +69,7 @@ export default function Notes(props) {
 
 
         <Column size={12} className="notes-editor" id="notes-editor">
-          Editor...
+          <Editor note={current_note} />
         </Column>
       </Column.Group>
     </Fragment>
