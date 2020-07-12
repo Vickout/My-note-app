@@ -22,6 +22,11 @@ export default function Notes(props) {
     }
   }
 
+  const createNote = async (params) => {
+    const note = await NoteService.create();
+    fetchNotes();
+  }
+
   const selectNote = (id) => {
     const note = notes.find((note) => {
       return note._id == id;
@@ -49,6 +54,7 @@ export default function Notes(props) {
           <List
             notes={notes}
             selectNote={selectNote}
+            createNote={createNote}
             current_note={current_note} />
         </Menu>
 
